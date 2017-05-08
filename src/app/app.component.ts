@@ -6,7 +6,7 @@ import { Animal } from './animal.model';
   template: `
   <div class="container" id="animalList">
     <div id="title">
-      <h1>Angular Zoo</h1>
+      <h1>Zoo</h1>
     </div>
     <animal-list [childAnimalList]="masterAnimalList" (clickSender)="editAnimal($event)" (clickNewAnimal)="showNewAnimal()"></animal-list>
     <edit-animal [childSelectedAnimal]="selectedAnimal" (doneWithAnimal)="finishedEditing()"></edit-animal>

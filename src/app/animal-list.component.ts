@@ -41,7 +41,7 @@ import { Animal } from './animal.model';
     </tr>
   </table>
   <a href="#newAnimalForm">
-  <button id="newAnimalButton" (click)="newAnimal()" class="saveButton">Add an Animal</button></a>
+  <button id="newAnimalButton" ng-click="newAnimal()" class="saveButton">Add an Animal</button></a>
   `
 })
 
