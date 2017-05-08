@@ -8,9 +8,9 @@ import { Animal } from './animal.model';
     <div id="title">
       <h1>Zoo</h1>
     </div>
-    <animal-list [childAnimalList]="masterAnimalList" (clickSender)="editAnimal($event)" (clickNewAnimal)="showNewAnimal()"></animal-list>
+    <animal-list [childAnimalList]="allAnimals" (clickSender)="editAnimal($event)" (clickNewAnimalSender)="showNewAnimal()"></animal-list>
     <edit-animal [childSelectedAnimal]="selectedAnimal" (doneWithAnimal)="finishedEditing()"></edit-animal>
-    <new-animal (newAnimalSender)="addAnimal($event)" [addNewAnimal]="addNewAnimal" (cancelForm)="closeNewForm()"></new-animal>
+    <new-animal (newAnimalSender)="addAnimal($event)" [addNewAnimal]="addNewAnimal"  (cancelForm)="closeNewForm()"></new-animal>
   </div>
   `
 })
@@ -30,6 +30,7 @@ export class AppComponent {
   }
 
   showNewAnimal() {
+    console.log("should show form")
     this.addNewAnimal = true
   }
 
@@ -37,7 +38,7 @@ export class AppComponent {
     this.addNewAnimal = false
   }
 
-  addAnimal(newAnimalFromChild: Animal) {
-    this.allAnimals.push(newAnimalFromChild)
+  addAnimal(newAnimal: Animal) {
+    this.allAnimals.push(newAnimal)
   }
 }

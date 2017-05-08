@@ -27,7 +27,7 @@ import { Animal } from './animal.model';
       <th>Dislikes</th>
       <th></th>
     </tr>
-    <tr *ngFor="let currentAnimal of childAnimalList | filterAge:filterByAge">
+    <tr *ngFor="let currentAnimal of childAnimalList">
       <td>{{currentAnimal.name}}</td>
       <td>{{currentAnimal.species}}</td>
       <td>{{currentAnimal.age}}</td>
@@ -40,8 +40,7 @@ import { Animal } from './animal.model';
       <td><button (click)="editAnimal(currentAnimal)" class="formButton">Edit</button></td>
     </tr>
   </table>
-  <a href="#newAnimalForm">
-  <button id="newAnimalButton" ng-click="newAnimal()" class="saveButton">Add an Animal</button></a>
+  <a href="#newAnimalForm"><button id="newAnimalButton" (click)="newAnimal()" class="saveButton">Add an Animal</button></a>
   `
 })
 
@@ -55,6 +54,7 @@ export class AnimalListComponent {
   }
 
   newAnimal() {
+    console.log("success")
     this.clickNewAnimalSender.emit()
   }
 

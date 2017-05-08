@@ -33,7 +33,7 @@ import { Animal } from './animal.model'
       <input type="number" min="0" #newCaretakers required class="form-control">
     </div>
     <label>Sex</label>
-    <select #newSex  class="form-control">
+    <select #newSex class="form-control">
       <option [value]="Male">Male</option>
       <option [value]="Female">Female</option>
     </select>
@@ -46,7 +46,7 @@ import { Animal } from './animal.model'
       <input #newDislikes required class="form-control">
     </div>
     <a href="#animalList">
-      <button class="saveButton" ng-click="submitForm(newSpecies.value, newName.value, newAge.value, newDiet.value, newLocation.value, newCaretakers.value, newSex.value, newLikes.value, newDislikes.value)">Save New Animal</button>
+      <button class="saveButton" (click)="submitForm(newSpecies.value, newName.value, newAge.value, newDiet.value, newLocation.value, newCaretakers.value, newSex.value, newLikes.value, newDislikes.value)">Save New Animal</button>
     </a>
     <a href="#animalList">
       <button class="saveButton" (click)="cancelForm()">Cancel</button>
@@ -61,6 +61,9 @@ export class NewAnimalComponent {
   @Input() addNewAnimal: boolean
 
   submitForm(species: string, name: string, age: number, diet: string, location: string, caretakers: number, sex: string, likes: string, dislikes: string) {
+    console.log(sex)
+    console.log(diet)
+    console.log("This should trigger")
     var newAnimal: Animal = new Animal(species, name, age, diet, location, caretakers, sex, likes, dislikes)
     this.newAnimalSender.emit(newAnimal)
   }
