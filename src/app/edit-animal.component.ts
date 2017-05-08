@@ -37,8 +37,8 @@ import { Animal } from './animal.model';
     </div>
     <div class="form-group">
       <label>Sex</label><br>
-      <input type="radio" [(ngModel)]="childSelectedAnimal.sex" [value]="1">Male<br>
-      <input type="radio" [(ngModel)]="childSelectedAnimal.sex" [value]="2">Female<br>
+      <input type="radio" [(ngModel)]="childSelectedAnimal.sex" [value]="Male">Male<br>
+      <input type="radio" [(ngModel)]="childSelectedAnimal.sex" [value]="Female">Female<br>
     </div>
     <div class="form-group">
       <label>Likes</label>

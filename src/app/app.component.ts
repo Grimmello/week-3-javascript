@@ -30,7 +30,6 @@ export class AppComponent {
   }
 
   showNewAnimal() {
-    console.log("should show form")
     this.addNewAnimal = true
   }
 

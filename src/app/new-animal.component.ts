@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core'
 import { Animal } from './animal.model'
 
+
 @Component ({
   selector: 'new-animal',
   template: `
@@ -19,10 +20,10 @@ import { Animal } from './animal.model'
       <input type="number" min="0" #newAge required class="form-control">
     </div>
     <label>Diet</label>
-    <select #newDiet  class="form-control">
-      <option [value]="Herbivore">Herbivore</option>
-      <option [value]="Omnivore">Omnivore</option>
-      <option [value]="Carnivore">Carnivore</option>
+    <select #newDiet class="form-control">
+      <option value="Herbivore">Herbivore</option>
+      <option value="Omnivore">Omnivore</option>
+      <option value="Carnivore">Carnivore</option>
     </select>
     <div class="form-group">
       <label>Location</label>
@@ -34,8 +35,8 @@ import { Animal } from './animal.model'
     </div>
     <label>Sex</label>
     <select #newSex class="form-control">
-      <option [value]="Male">Male</option>
-      <option [value]="Female">Female</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
     </select>
     <div class="form-group">
       <label>Likes</label>
@@ -63,7 +64,6 @@ export class NewAnimalComponent {
   submitForm(species: string, name: string, age: number, diet: string, location: string, caretakers: number, sex: string, likes: string, dislikes: string) {
     console.log(sex)
     console.log(diet)
-    console.log("This should trigger")
     var newAnimal: Animal = new Animal(species, name, age, diet, location, caretakers, sex, likes, dislikes)
     this.newAnimalSender.emit(newAnimal)
   }
