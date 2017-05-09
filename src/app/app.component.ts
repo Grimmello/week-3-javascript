@@ -18,25 +18,20 @@ import { Animal } from './animal.model';
 export class AppComponent {
   selectedAnimal = null
   addNewAnimal = false
-
   allAnimals: Animal[] = []
 
   editAnimal(clickedAnimal) {
     this.selectedAnimal = clickedAnimal
   }
-
   finishedEditing() {
     this.selectedAnimal = null
   }
-
   showNewAnimal() {
     this.addNewAnimal = true
   }
-
   closeForm() {
     this.addNewAnimal = false
   }
-
   addAnimal(newAnimal: Animal) {
     this.allAnimals.push(newAnimal)
   }

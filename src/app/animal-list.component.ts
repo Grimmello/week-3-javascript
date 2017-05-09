@@ -5,16 +5,15 @@ import { Animal } from './animal.model';
   selector: 'animal-list',
   template: `
   <h2>Current Animals:</h2>
-  <br>
   <label>Filter by Age</label>
-  <select class="form-control" (change)="onAgeChange($event.target.value)">
+  <select (change)="onAgeChange($event.target.value)">
     <option value="allAnimals" selected="selected">All Animals</option>
     <option value="youngAnimals">Young Animals (< 2 years)</option>
     <option value="matureAnimals">Mature Animals (+ 2 years)</option>
   </select>
-  <div id="caretakers" class="col-md-4">
+  <div id="caretakers" class="col-md-6">
   </div>
-  <table>
+  <table style="width: 70%;"><br>
     <tr id="tableHeader">
       <th>Name</th>
       <th>Species</th>
@@ -27,7 +26,7 @@ import { Animal } from './animal.model';
       <th>Dislikes</th>
       <th></th>
     </tr>
-    <tr *ngFor="let currentAnimal of childAnimalList">
+    <tr *ngFor="let currentAnimal of childAnimalList" style="text-align: center;">
       <td>{{currentAnimal.name}}</td>
       <td>{{currentAnimal.species}}</td>
       <td>{{currentAnimal.age}}</td>
@@ -39,7 +38,7 @@ import { Animal } from './animal.model';
       <td>{{currentAnimal.dislikes}}</td>
       <td><button (click)="editAnimal(currentAnimal)" class="formButton">Edit</button></td>
     </tr>
-  </table>
+  </table><br>
   <a href="#newAnimalForm"><button id="newAnimalButton" (click)="newAnimal()" class="saveButton">Add an Animal</button></a>
   `
 })
@@ -52,12 +51,10 @@ export class AnimalListComponent {
   editAnimal(animalToEdit: Animal) {
     this.clickSender.emit(animalToEdit)
   }
-
   newAnimal() {
     console.log("success")
     this.clickNewAnimalSender.emit()
   }
-
   filterByAge: string = "allAnimals"
   onAgeChange(optionFromMenu) {
     this.filterByAge = optionFromMenu
